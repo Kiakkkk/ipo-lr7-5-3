@@ -15,14 +15,14 @@ with open('k.json', 'r', encoding='utf-8') as file: #открывается фа
         if c == 1: #выводит все записи
             print("===========")
             for sity in data:
-                print(f"{sity["id"]}: {sity["name"]}, {sity["country"]}\nНаселение: {sity["people_count"]}, >100000 ?: {sity["is_big"]}\n==========")
+                print(f'{sity["id"]}: {sity["name"]}, {sity["country"]}\nНаселение: {sity["people_count"]}, >100000 ?: {sity["is_big"]}\n==========')
         
         elif c == 2:#выводит поле записи, id которой ввел пользователь
             inp_id = int(input("Введите поле выводимой записи: "))
             for sity in data:
                 k += 1
                 if inp_id == sity["id"]:
-                    print(f"{sity["id"]}: {sity["name"]}, {sity["country"]}\nНаселение: {sity["people_count"]}, >100000 ?: {sity["is_big"]}\nПорядковый номер записи: {k}\n==========")
+                    print(f'{sity["id"]}: {sity["name"]}, {sity["country"]}\nНаселение: {sity["people_count"]}, >100000 ?: {sity["is_big"]}\nПорядковый номер записи: {k}\n==========')
                     flag = False
             print("=====Запись не найдена======\n" if flag else "")
         
