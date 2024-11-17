@@ -27,10 +27,14 @@ with open('k.json', 'r', encoding='utf-8') as file: #открывается фа
             print("=====Запись не найдена======\n" if flag else "")
         
         elif c == 3: #ввод всех данных, запись их в множество и добавление множество в data
-            new_sity["id"] = int(input("Введите id: "))
+            new_sity["id"] = data[-1]["id"] + 1
             new_sity["name"] = input("Введите название города: ")
             new_sity["country"] = input("Введите страну: ")
-            new_sity["people_count"] = int(input("Введите население: "))
+            try:
+                new_sity["people_count"] = int(input("Введите население: "))
+            except:
+                print("Некорректное значение")
+                continue
             new_sity["is_big"] = (True if new_sity["people_count"]>100000 else False)
             data.append(new_sity)
         
