@@ -1,5 +1,6 @@
 import json
 
+num_op = 0
 c = 0 #вводимый пункт
 new_sity = {"id":0, "name":"", "country":"", "is_big":False,"people_count":0} #множество для добавляемой записи
 
@@ -27,14 +28,10 @@ with open('k.json', 'r', encoding='utf-8') as file: #открывается фа
             print("=====Запись не найдена======\n" if flag else "")
         
         elif c == 3: #ввод всех данных, запись их в множество и добавление множество в data
-            new_sity["id"] = data[-1]["id"] + 1
+            new_sity["id"] = int(input("Введите id: "))
             new_sity["name"] = input("Введите название города: ")
             new_sity["country"] = input("Введите страну: ")
-            try:
-                new_sity["people_count"] = int(input("Введите население: "))
-            except:
-                print("Некорректное значение")
-                continue
+            new_sity["people_count"] = int(input("Введите население: "))
             new_sity["is_big"] = (True if new_sity["people_count"]>100000 else False)
             data.append(new_sity)
         
@@ -49,11 +46,12 @@ with open('k.json', 'r', encoding='utf-8') as file: #открывается фа
     
         
         elif c == 5: #завершается цикл
-            print('Завершение работы программы')
+            print(f'Завершение работы программы. Было выполнено {num_op} действий')
             break
         
         else: #при вводе некорректного значения
             print('Введите корректное значение')
+        num_op += 1
 
 with open('k.json', 'w', encoding='utf-8') as file: #информация записывается обратно в файл
     json.dump(data, file, indent=4, ensure_ascii=True)
