@@ -8,7 +8,12 @@ def display_all_records(data): #функция для вывода всех за
 def display_one_record(data): #вывод одной записи
     k = 0 #переменная для номера записи
     flag = True #флаг для запоминания, найдена запись или нет
-    inp_id = int(input("Введите поле выводимой записи: "))
+    inp_id = input("Введите поле выводимой записи: ")
+    if inp_id.isdigit():
+        inp_ip = int(inp_id)
+    else:
+        print("Некорректный ввод\n")
+        return 0
     for sity in data: #цикл с поиском по всем записей
         k += 1
         if inp_id == sity["id"]:
@@ -31,7 +36,12 @@ def new_record(data): #функция для создания записи
 def delete_record(data):#функция для удаления записи
     k = 0#переменная для номера записи
     flag = True#флаг для запоминания, найдена запись или нет
-    inp_id = int(input("Введите поле удаляемой записи: "))
+    inp_id = input("Введите поле удаляемой записи: ")
+    if inp_id.isdigit():
+        inp_ip = int(inp_id)
+    else:
+        print("Некорректный ввод\n")
+        return 0
     for sity in data: #цикл с поиском нужной записи и удалением её из data
         if inp_id == sity["id"]:
             data.pop(k)
